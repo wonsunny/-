@@ -1,3 +1,8 @@
+const {
+  errorHandler,
+  errorLogger,
+} = require('./middlewares/error-hander.middleware');
+
 // reqiures
 require('dotenv').config();
 const express = require('express');
@@ -5,10 +10,6 @@ const Http = require('http');
 const cors = require('cors');
 const helmet = require('helmet');
 const morgan = require('morgan');
-const {
-  errorHandler,
-  errorLogger,
-} = require('./middlewares/error-hander.middleware');
 
 const cookieParser = require('cookie-parser');
 const indexRouter = require('./routes/index');
@@ -17,6 +18,7 @@ const app = express();
 const http = Http.createServer(app);
 const router = express.Router();
 const port = process.env.EXPRESS_PORT || 3000;
+
 
 // middlewares
 app.use(cors());
