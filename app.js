@@ -1,15 +1,16 @@
-const {
-  errorHandler,
-  errorLogger,
-} = require('./middlewares/error-hander.middleware');
-
 // reqiures
 require('dotenv').config();
 const express = require('express');
 const Http = require('http');
 const cors = require('cors');
 const helmet = require('helmet');
+const cors = require('cors');
+const helmet = require('helmet');
 const morgan = require('morgan');
+const {
+  errorHandler,
+  errorLogger,
+} = require('./middlewares/error-hander.middleware');
 
 const cookieParser = require('cookie-parser');
 const indexRouter = require('./routes/index');
