@@ -4,8 +4,6 @@ const express = require('express');
 const Http = require('http');
 const cors = require('cors');
 const helmet = require('helmet');
-const cors = require('cors');
-const helmet = require('helmet');
 const morgan = require('morgan');
 const {
   errorHandler,
@@ -20,7 +18,6 @@ const http = Http.createServer(app);
 const router = express.Router();
 const port = process.env.EXPRESS_PORT || 3000;
 
-
 // middlewares
 app.use(cors());
 app.use(cookieParser());
@@ -30,6 +27,10 @@ app.use(express.json());
 app.use(express.urlencoded({ extended: false }), router);
 app.use('/api', require('./routes/signup.route'));
 app.use('/api', require('./routes/login.route'));
+app.use(express.urlencoded({ extended: false }), router);
+app.use('/api', require('./routes/signup.route'));
+app.use('/api', require('./routes/login.route'));
+app.use('/api', require('./routes/user.route'));
 app.use('/api', require('./routes/user.route'));
 app.use('/api/qnas', require('./routes/questions.route'));
 app.use('/api/answers', require('./routes/answers.route'));
